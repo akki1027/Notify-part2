@@ -3,7 +3,7 @@ class LikesController < ApplicationController
 		tweet = Tweet.find(params[:tweet_id])
 		like = current_user.likes.new(tweet_id: tweet.id)
 		if like.save
-			like.save_notification_like!(current_user, tweet)
+			tweet.save_notification_like_tweet!(current_user, tweet)
 			redirect_back(fallback_location: root_url)
 		end
 	end
