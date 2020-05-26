@@ -1,0 +1,9 @@
+<% if comment.liked_by?(current_user) %>
+	<%= link_to destroy_likes_comment_path(comment.id), method: :delete do %>
+		<i class="fas fa-heart liked"></i>
+	<% end %>
+<% else %>
+	<%= link_to create_likes_comment_path(comment.id), method: :post do %>
+		<i class="far fa-heart not_liked"></i>
+	<% end %>
+<% end %>

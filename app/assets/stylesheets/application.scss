@@ -1,0 +1,65 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap-sprockets";  /*ここを追加*/
+ @import "bootstrap";            /*ここを追加*/
+
+.row {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+// ヘッダー
+header {
+	border-bottom: 1px solid #BBC1C6;
+}
+ul {
+	padding: 0;
+}
+li {
+	list-style: none;
+	float: left;
+	margin-right: 10px;
+}
+// ヘッダーここまで
+// 投稿フォーム
+input[type="submit"] {
+	color: white;
+	background-color: #63B6FF;
+	margin-top: 5px;
+}
+input[type="submit"]:hover {
+	color: white;
+}
+// 投稿フォームここまで
+// リスト
+.tweet-actions {
+	float: right;
+}
+.list-group {
+	width: 100%;
+	margin: 0 auto;
+}
+.list-group-item {
+	width: 100%;
+}
+// リストここまで
+// アイコン
+.liked {
+	color: #C4617B;
+}
+.not_liked {
+	color: black
+}
+// アイコンここまで

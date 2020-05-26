@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Notify</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <script src="https://kit.fontawesome.com/ef1a52193c.js" crossorigin="anonymous"></script>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header class="container">
+      <div class="row">
+          <% if user_signed_in? %>
+            <ul>
+              <li><%= link_to 'ホーム', root_path %></li>
+              <% if new_notifications.any? %>
+                <li><i class="fas fa-circle" style="color: #FFD725"></i><%= link_to '通知', notifications_path %></li>
+              <% else %>
+                <li><%= link_to '通知', notifications_path %></li>
+              <% end %>
+              <li>ユーザー名: <%= current_user.name %></li>
+              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+            </ul>
+          <% else %>
+            <ul>
+              <li><%= link_to 'ホーム', root_path %></li>
+              <li><%= link_to 'ログイン', new_user_session_path %></li>
+              <li><%= link_to '新規登録', new_user_registration_path %></li>
+            </ul>
+          <% end %>
+      </div>
+    </header>
+    <%= yield %>
+  </body>
+</html>

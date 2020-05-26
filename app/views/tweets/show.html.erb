@@ -1,0 +1,57 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3"></div>
+		<div class="col-xs-6">
+			<ul class="list-group">
+				<li class="list-group-item">
+					<div class="tweet-actions">
+						<%= link_to '詳細', tweet_path(@tweet) %>
+						<% if @tweet.user == current_user %>
+							<%= link_to '編集', edit_tweet_path(@tweet) %>
+							<%= link_to '削除', tweet_path(@tweet), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+						<% end %>
+						<%= @tweet.created_at.to_s(:datetime_jp) %>
+					</div>
+					<div>
+						<%= @tweet.user.name %><br>
+						<%= @tweet.content %><br>
+						<%= @tweet.comments.count %>件のコメント
+						<%= render 'likes/like_tweet', tweet: @tweet %><%= @tweet.likes.count %>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-3"></div>
+		<div class="col-xs-6">
+			<%= form_for [@tweet, @comment] do |f| %>
+				<div class="field">
+					<%= f.text_area :content, size: "10x5", class:"form-control", required: true, placeholder: "コメント内容" %>
+				</div>
+				<div class="submit">
+					<%= f.submit "コメントを投稿", class:"btn" %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-3"></div>
+		<div class="col-xs-6">
+			<ul class="list-group">
+				<% @comments.each do |comment| %>
+					<li class="list-group-item">
+						<div class="tweet-actions">
+							<%= link_to '削除', tweet_comment_path(tweet_id: comment.tweet_id, id: comment.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+							<%= comment.created_at.to_s(:datetime_jp) %>
+						</div>
+						<%= comment.user.name %><br>
+						<%= comment.content %><br>
+						<%= render 'likes/like_comment', comment: comment %><%= comment.likes.count %>
+					</li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+</div>
+
