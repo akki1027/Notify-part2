@@ -198,3 +198,12 @@ def notification_form(notification)
 	end
 end
 ```
+
+
+## app/views/tweets/index.html.erb
+![app/views/tweets/index.html.erb](https://user-images.githubusercontent.com/60538665/82858693-92a8f300-9f4f-11ea-9ed4-ee456b811296.png)
+
+
+## app/views/notifications/index.html.erb
+通知一覧のページになります。
+![app/views/notifications/index.html.erb](https://user-images.githubusercontent.com/60538665/82858713-a6ecf000-9f4f-11ea-9cdd-a5858e6904c3.png)
