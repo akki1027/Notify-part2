@@ -101,7 +101,7 @@ end
 ツイートにいいねをした時(取り消した時)と、コメントにいいねをした時(取り消した時)の２パターンが必要なため、createとdestroyをそれぞれ作成する必要があります。  
 ここで先ほど作成したメソッド
 * save_notification_like_tweet!
-* save_notification_like_comment!
+* save_notification_like_comment!  
 を使い、いいねをした時に通知も作成することができるようにします。  
 app/conrtollers/likes_controller.rb
 ```bash
